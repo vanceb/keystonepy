@@ -4,6 +4,8 @@ This library is a Python interface to the C++ library for the [Monkeyboard DAB/D
 
 The library is made of two parts: an unpythonic-style interface, that is a basic wrapper around the C++ library, and a more pythonisque OOP interface.
 
+This fork of madpilot's original adds logging, and to introduces a sanity check in the creation of the program list.  I was getting very large numbers of programs reported from the radio which in turn was creating a simlarly large number of program objects and running out of memory on the Raspberry Pi I was using to control the radio.  The corruption on the number of reported programs was also accompanied by other data corruptions, which may or may not have been caused by memory issues.  This appeared to be linked with repeated calls to the `program` property.
+
 ## Setup
 
 *Please note* This library requires the latest libkeystonecomm.so file, which has correctly exported library functions. If you haven't downloaded the library recently, so and [do it now](http://www.monkeyboard.org/tutorials/78-interfacing/87-raspberry-pi-linux-dab-fm-digital-radio)
