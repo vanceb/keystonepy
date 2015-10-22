@@ -33,7 +33,7 @@ class Program(object):
         """
         Returns the name of the program
         """
-        prog = self.interface.get_program_name(self.mode, self.index, 1)
+        prog = unicode(self.interface.get_program_name(self.mode, self.index, 1))
         self.logger.debug("Returning program name for index="+ str(self.index) + ": " + str(prog))
         return prog
 
@@ -51,7 +51,7 @@ class Program(object):
         """
         Returns the current DAB text. Often used for current song information
         """
-        txt = self.interface.get_program_text()
+        txt = unicode(self.interface.get_program_text())
         self.logger.debug("Retuning currently playing text: " + str(txt))
         return txt
 
@@ -69,7 +69,7 @@ class Program(object):
         """
         Returns information about the program
         """
-        info = self.interface.get_program_info(self.index)
+        info = unicode(self.interface.get_program_info(self.index))
         self.logger.debug("Returning info for index=" + str(self.index) + ": " + str(info))
         return info
 
