@@ -34,7 +34,7 @@ class Program(object):
         Returns the name of the program
         """
         prog = unicode(self.interface.get_program_name(self.mode, self.index, 1))
-        self.logger.debug("Returning program name for index="+ str(self.index) + ": " + str(prog))
+        self.logger.debug("Returning program name for index="+ str(self.index) + ": " + prog)
         return prog
 
     @property
@@ -51,8 +51,10 @@ class Program(object):
         """
         Returns the current DAB text. Often used for current song information
         """
-        txt = unicode(self.interface.get_program_text())
-        self.logger.debug("Retuning currently playing text: " + str(txt))
+        txt = self.interface.get_program_text()
+        if txt is not None:
+            txt = unicode(txt)
+        self.logger.debug("Retuning currently playing text: " + txt)
         return txt
 
     @property
@@ -70,7 +72,7 @@ class Program(object):
         Returns information about the program
         """
         info = unicode(self.interface.get_program_info(self.index))
-        self.logger.debug("Returning info for index=" + str(self.index) + ": " + str(info))
+        self.logger.debug("Returning info for index=" + str(self.index) + ": " + info)
         return info
 
     def mot_query(self):
