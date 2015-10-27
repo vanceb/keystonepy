@@ -54,7 +54,7 @@ class Program(object):
         txt = self.interface.get_program_text()
         if txt is not None:
             txt = unicode(txt)
-        self.logger.debug("Retuning currently playing text: " + txt)
+            self.logger.debug("Retuning currently playing text: " + txt)
         return txt
 
     @property
